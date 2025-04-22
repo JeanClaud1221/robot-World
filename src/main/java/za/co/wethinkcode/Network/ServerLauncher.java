@@ -1,5 +1,7 @@
 package za.co.wethinkcode.Network;
 
+import za.co.wethinkcode.Logic.User;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -9,7 +11,10 @@ public class ServerLauncher {
             while(true){
                 Socket clientSocket=serverSocket.accept();
                 new Thread(new Server(clientSocket)).start();
+
+
             }
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

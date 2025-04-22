@@ -4,15 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private static Map<String,String> users=new HashMap<>();
-    public static void addUser(String localPort,String name){
-        users.put(localPort,name);
+    private String name;
+    private int id=0;
+    private static int idCounter=0;
+
+
+    public User(String name) {
+        this.name = name;
+        idCounter++;
+        id=idCounter;
     }
-    public static String getUser(String localPort){
-        try{
-            return users.get(localPort);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    @Override
+    public String toString(){
+        return "[Name:"+name+"\n" + "Id:" + String.valueOf(id)+"]";
     }
+
 }
